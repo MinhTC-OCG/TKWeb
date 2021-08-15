@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>p2b1</title>
+</head>
+
+<body>
+    <label>Enter Your Mail Address</label>
+    <input type="text">
+    <button id="btnAdd">Add More</button>
+
+
+</body>
+    <script type="text/javascript">
+        const btnAdd = document.getElementById("btnAdd")
+        const body = document.querySelector("body")
+
+        btnAdd.addEventListener("click", () => {
+
+            add()
+        })
+
+        const add = () => {
+            console.log('click');
+            const form = document.createElement('div')
+            form.classList.add('form')
+            form.innerHTML = `
+                <label>Enter Your Mail Address</label>
+                <input type="text">
+                <button class="btnRemove">Remove</button>
+            `
+            const btnRemove = form.querySelector(".btnRemove")
+            btnRemove.addEventListener("click", () =>{
+                form.remove()
+            })
+            body.appendChild(form)
+
+        }
+    </script>
+</html>

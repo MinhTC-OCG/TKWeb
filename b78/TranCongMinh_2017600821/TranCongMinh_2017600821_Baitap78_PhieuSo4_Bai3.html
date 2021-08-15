@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>p4b3</title>
+</head>
+
+<body>
+    <table width="500" border="1">
+        <tbody>
+            <tr style="background-color: deepskyblue">
+                <th scope="col" colspan="2">Bài tập về chuỗi</th>
+            </tr>
+            <tr>
+                <td>Số câu nhập vào:</td>
+                <td><input type="text" id="input"></td>
+            </tr>
+            <tr>
+                <td>Số từ: </td>
+                <td><input type="text" id="count"></td>
+            </tr>
+            <tr>
+                <td>Câu đã chuẩn hóa: </td>
+                <td><input type="text" id="string"></td>
+            </tr>
+            <tr>
+                <td><button id="wordCount">Đếm từ</button></td>
+                <td><button id="output">Xuất câu</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        let input = document.getElementById('input');
+        let count = document.getElementById('count');
+        let string = document.getElementById('string');
+        let wordCount=document.getElementById('wordCount');
+        let output = document.getElementById('output');
+        
+        const filterSting=(str)=>{
+            return str.split(' ').filter(i=>i.length!==0)
+        }
+
+        wordCount.addEventListener('click',(e)=>{
+            e.preventDefault();
+            count.value = filterSting(input.value).length;
+        })
+
+        output.addEventListener('click',(e)=>{
+            e.preventDefault();
+            let stringValue = filterSting(input.value).join(' ');
+            string.value=stringValue.charAt(0).toUpperCase()+stringValue.slice(1);
+        })
+
+    </script>
+</body>
+
+</html>

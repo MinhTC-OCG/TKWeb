@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p3b3</title>
+	<style type="text/css">
+		html,body
+		{
+			height:100%;
+		}
+
+		*{
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+		}
+		body{
+			font-size: 1rem;
+			line-height:1.6;
+			background-color:#ecf0f1;
+			color:#666;
+		}
+		ul{
+			list-style: none;
+			width:100%;
+			display:flex;
+			justify-content:space-between;
+			align-items:center;
+		}
+
+		header{
+			background-color:blue;
+
+		}
+
+		nav{
+			max-width:1110px;
+			margin:0 auto;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+		}
+
+		.menu li{
+			position: relative;
+			width: 20%;
+		}
+
+		.menu a{
+			text-decoration: none;
+			color:#fff;
+			display:block;
+			padding:10px 1.5rem;
+		}
+
+		.menu a:hover{
+			background-color:red;
+			color:#fff;
+		}
+
+		.submenu{
+    		position:absolute;
+    		background-color:red;
+    		width:500px;
+    		left:0;
+    		display: none;
+		}
+		.submenu li{
+			position: relative;
+			width: 25%;
+		}
+		
+		.menu li:hover>.submenu{
+    		display:block;
+    		display:flex;
+    
+		}
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <ul class="menu">
+            <li><a href="#">Chính trị-xã hội</a></li>
+            <li><a href="#">Thế giới</a>
+                <ul class="submenu">
+                    <li><a href="#">Thư viện pháp luật</a></li>
+                    <li><a href="#">Sống khỏe</a></li>
+                    <li><a href="#">Pháp luật</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#">Nhịp sống trẻ</a></li>
+            <li><a href="#">Giáo dục</a></li>
+            <li><a href="#">Kinh tế</a></li>
+        </ul>
+
+    </header>
+</body>
+
+</html>

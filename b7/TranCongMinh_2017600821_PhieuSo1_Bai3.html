@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>p1b3</title>
+    
+</head>
+<body>
+	<img alt="" src="images/light_bulb_off.PNG" width="150" height="250" id="light"/>
+    
+</body>
+	<script type="text/javascript">
+        
+		let light = document.getElementById("light")
+		let status = 0
+		light.addEventListener("click", (e)=>{
+			e.preventDefault();
+			if(status==1)
+				{
+					light.src="images/light_bulb_off.PNG"
+					status=0
+				}
+			else
+				{
+					light.src="images/light_bulb_on.PNG"
+					status=1
+				}
+			console.log(status);
+		})
+    </script>
+</html>

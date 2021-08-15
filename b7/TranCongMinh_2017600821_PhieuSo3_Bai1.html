@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>p3b1</title>
+</head>
+<body style="display:flex;">
+    <div class="box" data-color="red" style="background-color:red;width: 100px;height: 100px">
+
+    </div>
+    <div class="box" data-color="blue" style="background-color:blue;width: 100px;height: 100px">
+
+    </div>
+    <div class="box" data-color="green" style="background-color:green;width: 100px;height: 100px">
+
+    </div>
+
+</body>
+	    <script type="text/javascript">
+        const body = document.querySelectorAll('body')[0];
+        const boxes =document.querySelectorAll('.box')
+
+        for(let i = 0; i < boxes.length; i++){
+            boxes[i].addEventListener('mouseover',(e)=>{
+                e.preventDefault();
+                console.log('hover');
+                console.log(boxes[i].getAttribute("data-color"));
+                body.style.backgroundColor = boxes[i].getAttribute("data-color")
+            })
+        }
+
+    </script>
+</html>

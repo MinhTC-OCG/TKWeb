@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label>Nhập giờ vào</label>
+        <input type="text" placeholder="Nhập giờ vào" id="input"/>
+        <label>Nhập giờ ra</label>
+        <input type="text" placeholder="Nhập giờ ra" id="output"/>
+        <button id="btnSubmit">Tính tiền</button>
+    </form>
+    <p id="result"></p>
+    <script type="text/javascript">
+        const input= document.getElementById("input")
+        const output= document.getElementById("output")
+        const btnSubmit= document.getElementById("btnSubmit")
+        const result=document.getElementById("result")
+
+        btnSubmit.addEventListener("click",(e)=>{
+            e.preventDefault();
+            const inputVal=parseInt(input.value) 
+            const outputVal=parseInt(output.value)
+
+            if(inputVal<=10){
+                result.innerHTML=`Chưa mở cửa`
+            }else if(inputVal<=17&&outputVal<=17){
+                result.innerHTML=`Tiền khách phải trả là ${(outputVal-inputVal)*20000}`
+            }else if(inputVal>=17&&outputVal>=17&&inputVal<=24&&outputVal<=24){
+                result.innerHTML=`Tiền khách phải trả là ${(outputVal-inputVal)*45000}`
+            }else{
+                result.innerHTML=`Tiền khách phải trả là ${(17-inputVal)*20000+(24-outputVal)*45000}`
+            }
+        })
+    </script>
+</body>
+</html>

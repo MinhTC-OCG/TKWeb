@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>p2b4</title>
+</head>
+<body>
+    <form>
+        <h1>Login Information</h1>
+        <hr/>
+        <label>Username</label><input type="text" id="username"/>
+        <br/>
+        <label>Password</label><input type="password" id="password"/>
+        <br/>
+        <input type="checkbox"/>Remember Set
+        <button id="login">Login</button>
+        <button id="reset">Reset</button>
+    </form>
+    <script type="text/javascript">
+        let username = document.getElementById("username");
+        let password = document.getElementById("password");
+        let login = document.getElementById("login")
+        let reset = document.getElementById("reset")
+
+        login.addEventListener("click",(e)=>{
+            e.preventDefault();
+            console.log(username.value.length);
+            if(username.value.length===0){
+                alert("Username không được để trống");
+            }else if(password.value.length===0){
+                alert('Password không được để trống')
+            }else if(password.value.length<8){
+                alert('Password ít hơn 8 kí tự')
+            } else if(!isNaN(password.value[0])){
+                alert('Password không bắt đầu bằng số')
+            }else if(bigLettersCount(password.value)==0){
+                alert('Password không có chữ viết hoa')
+            }else{
+                alert('Đăng nhập thành công')
+            }
+            console.log(bigLettersCount('Tung'));
+        })
+
+        reset.addEventListener('click',(e)=>{
+            username.value="";
+            password.value="";
+        })
+
+        const bigLettersCount = (str) => {
+            let result = 0;
+            for (let i = 0; i < str.length; i += 1) {
+                if (str.charCodeAt(i) > 64 && str.charCodeAt(i) <91 ) {
+                result += 1;
+                }
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>

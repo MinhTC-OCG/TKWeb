@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>p2p1</title>
+</head>
+
+<body>
+	<input type="text" id="a" placeholder="Nhập số a">
+	<input type="text" id="b" placeholder="Nhập số b">
+	<input type="text" id="c" placeholder="Nhập số c">
+	<button id="execute">Nhập</button>
+	<div id="result"></div>
+	<script>
+        let a = document.getElementById("a")
+        let b = document.getElementById("b")
+        let c = document.getElementById("c")
+        
+		let re = document.getElementById("result")
+        const exe = document.getElementById("execute")
+		
+		exe.addEventListener("click",(e)=>{
+			
+			e.preventDefault();
+			let aVal=a.value
+			let bVal=b.value
+			let cVal=c.value
+			let delta = bVal*bVal-4*aVal*cVal
+			
+			switch (delta < 0) {
+            case true:
+				re.innerHTML=`
+				<p>Vô nghiệm</p>	
+					`
+                break;
+            case false:
+                switch (delta == 0) {
+                    case true:
+						re.innerHTML=`
+						<p>x1=x2=${-bVal / 2 * aVal}</p>	
+							`
+                        break;
+                    default:
+						re.innerHTML=`
+						<p>x1=${(-bVal - Math.sqrt(delta)) / (2 * aVal)};
+							x2=${(-bVal + Math.sqrt(delta)) / (2 * aVal)}</p>	
+							`
+                        break;
+                }
+                break;
+        }
+			}) 
+    </script>
+</body>
+</html>

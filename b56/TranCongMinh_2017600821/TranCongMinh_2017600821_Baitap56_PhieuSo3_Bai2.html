@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <table cellspacing="0" border="2" style="background-color: skyblue">
+            <tr>
+                <th colspan="2">Chương trình tính tiên taxi</th>
+            </tr>
+            <tr>
+                <td>Số km đã đi được</td>
+                <td>
+                    <input type="text" id="km"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Số tiền cần thanh toán</td>
+                <td>
+                    <input type="text" id="tien"/>
+                </td>
+            </tr>
+    
+            <tr align="center">
+                <td colspan="2">
+                    <button id="btnDelete">xóa</button>
+                    <button id="btnSearch">Tra cứu</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+    <script type="text/javascript">
+        const km = document.getElementById('km')
+        const tien= document.getElementById('tien')
+        const btnSearch = document.getElementById('btnSearch')
+        const btnDelete = document.getElementById('btnDelete')
+        
+
+        btnSearch.addEventListener("click",(e)=>{
+            e.preventDefault()
+            const kmVal=parseFloat(km.value)
+            const tienVal=parseFloat(tien.value)
+            if(kmVal<=1){
+                tien.value=`${kmVal*15000}`
+            }else if(kmVal>1&&kmVal<=5){
+                tien.value=`${15000+(kmVal-1)*12000}`
+            }else{
+                tien.value=`${15000+12000*4+(kmVal-6)*90000}`
+            }
+            if(kmVal>140){
+                tien.value=`${tien.value*0.12}`
+            }
+
+        })
+
+
+        btnDelete.addEventListener("click",(e)=>{
+            e.preventDefault();
+            km.value=""
+            tien.value=""
+        })
+        
+    </script>
+</body>
+</html>

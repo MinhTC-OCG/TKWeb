@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>p1b1</title>
+</head>
+
+<body>
+	<input type="text" id="txt1">
+	
+	<input type="text" id="txt2">
+</body>
+	
+	<script>
+		let textBox1 = document.getElementById("txt1")
+		let textBox2 = document.getElementById("txt2")
+		
+		textBox1.addEventListener("focus", (e)=>{
+			e.preventDefault()
+			
+			alert("focus")
+		})
+		textBox2.addEventListener("change", (e)=>{
+			e.preventDefault()
+			
+			alert("change")
+		})
+	</script>
+</html>

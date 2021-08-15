@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>p4b2</title>
+</head>
+
+<body>
+	<table width="600" border="1" style="background-color: skyblue">
+  <tbody>
+    <tr>
+      <th scope="col" colspan="2">TÍNH GIÁ TRỊ CỦA MẢNG</th>
+    </tr>
+	  
+    <tr>
+      <th scope="row">Nhập mảng:</th>
+      <td>&nbsp;<input type="text" id="input" placeholder="cách nhau bởi ,"></td>
+    </tr>
+    <tr>
+      <th scope="row">Hiển thị các phần tử theo mảng ngược lại:</th>
+      <td>&nbsp;<input type="text" id="reverseArray"></td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" >
+		  <div style="position: relative; left: 250px">
+			<button id="btn_del">Xóa</button>
+			<button id="btn_cal">Tính</button>
+		  </div>
+		
+		</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+	<script type="application/javascript">
+		const del = document.getElementById("btn_del")
+		const cal = document.getElementById("btn_cal")
+		
+		let input = document.getElementById("input")
+		let re = document.getElementById("reverseArray")
+
+		
+		cal.addEventListener("click", (e)=>{
+			e.preventDefault()
+			let str=input.value.split(',').map((i)=>Number(i))
+			
+			console.log(str)
+			let reArray= new Array()
+			
+			let index = 0
+			for(let i=str.length;i>0;i--)
+			{
+				reArray[index]=str[i-1]
+				index++
+			}
+			console.log(reArray)
+			re.value=reArray
+		})
+		
+		del.addEventListener("click", (e)=>{
+			e.preventDefault()
+			input.value=""
+			sum.value=""
+			sum_i1.value=""
+			sum_i2.value=""
+			sum_minus.value=""
+			sum_positive.value=""
+			sum_mod_3.value=""
+		})
+	</script>
+</html>

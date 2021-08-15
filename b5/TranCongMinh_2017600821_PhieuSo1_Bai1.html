@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>p1b1</title>
+</head>
+
+<body>
+	Ngày tháng năm sinh:
+    <select id="day"></select>
+    tháng
+    <select id="month"></select>
+    năm
+    <select id="year"></select>
+<script type="text/javascript">
+    let day=document.getElementById('day')
+    let month=document.getElementById('month')
+    let year=document.getElementById('year')
+    console.log(day,month,year);
+    
+    for(let i=1;i<=31;i++){
+        day.innerHTML += `
+            <option value="${i}">${i}</option>
+        `
+    }
+
+    for(let i=1;i<=12;i++){
+        month.innerHTML += `
+            <option value="${i}">${i}</option>
+        `
+    }
+
+    for(let i=1900;i<=2050;i++){
+        year.innerHTML += `
+            <option value="${i}">${i}</option>
+        `
+    }
+</script>
+</body>
+</html>

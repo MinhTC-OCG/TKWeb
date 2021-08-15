@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <table cellspacing="0" border="2" style="background-color: skyblue">
+            <tr>
+                <th colspan="2">Tính tiền sân bóng</th>
+            </tr>
+            <tr>
+                <td>Nhâp giờ vào</td>
+                <td>
+                    <input type="text" id="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Nhập giờ ra</td>
+                <td>
+                    <input type="text" id="output"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Đơn giá theo giờ</td>
+                <td>
+                    <input type="text" id="dongiagio"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Số bính nước</td>
+                <td>
+                    <input type="text" id="nuoc"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Đơn giá bình nước</td>
+                <td>
+                    <input type="text" id="dongianuoc"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Tổng tiền</td>
+                <td>
+                    <input type="text" id="tien"/>
+                </td>
+            </tr>
+    
+            <tr align="center">
+                <td colspan="2">
+                    <button id="btnDelete">xóa</button>
+                    <button id="btnSearch">Tra cứu</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script type="text/javascript">
+        const input = document.getElementById('input')
+        const output = document.getElementById('output')
+        const dongiagio=document.getElementById('dongiagio')
+        const nuoc=document.getElementById('nuoc')
+        const dongianuoc=document.getElementById('dongianuoc')
+        const tien = document.getElementById('tien')
+        const btnSearch = document.getElementById('btnSearch')
+        const btnDelete = document.getElementById('btnDelete')
+
+        btnSearch.addEventListener('click',(e)=>{
+            e.preventDefault()
+            const inputVal=parseInt(input.value)
+            const outputVal=parseInt(output.value)
+            const dongiagioVal=parseInt(dongiagio.value)
+            const nuocVal=parseInt(nuoc.value)
+            const dongianuocVal=parseInt(dongianuoc.value)
+            let tienVal=parseInt(tien.value)
+            tienVal=(outputVal-inputVal)*dongiagioVal + nuocVal*dongianuocVal
+            tien.value=`${tienVal}`
+            if(tienVal>1000000){
+                alert("Khach vip")
+            }
+			else{
+				alert("Khach thuong")
+			}
+        })
+        </script>
+</body>
+</html>

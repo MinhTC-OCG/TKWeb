@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <table cellspacing="0" border="2" >
+            <tr>
+                <th colspan="2">Chương trình tra tuổi</th>
+            </tr>
+            <tr>
+                <td>Tuổi dương lich</td>
+                <td>
+                    <input type="text" id="tuoiDuong"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Tuổi âm lịch</td>
+                <td>
+                    <input type="text" id="tuoiAm"/>
+                </td>
+            </tr>
+    
+            <tr align="center">
+                <td colspan="2">
+                    <button id="btnDelete">xóa</button>
+                    <button id="btnSearch">Tra cứu</button>
+                </td>
+                
+            </tr>
+        </table>
+    </form>
+    
+    <script>
+        const tuoiDuong=document.getElementById("tuoiDuong")
+        const tuoiAm=document.getElementById("tuoiAm")
+        const btnSearch=document.getElementById("btnSearch")
+        const btnDelete=document.getElementById("btnDelete")
+        const Can=["Canh","Tân","Nhâm","Quý","Giáp","Ất","Bính","Đinh","Mậu","Kỷ"]
+        const Chi=["Thân","Dậu","Tuất","Hợi","Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi"]
+        btnSearch.addEventListener("click",(e)=>{
+            e.preventDefault();
+            const birthYear=new Date().getFullYear()-tuoiDuong.value;
+            console.log((birthYear-1980)%10);
+            tuoiAm.value=`${Can[(birthYear-1980)%10]} ${Chi[(birthYear-1980)%12]}`
+        })
+
+        btnDelete.addEventListener("click",(e)=>{
+            e.preventDefault();
+            tuoiAm.value=""
+            tuoiDuong.value=""
+        })
+        
+    </script>
+</body>
+</html>

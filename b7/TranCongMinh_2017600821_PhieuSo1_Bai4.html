@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>p1b4</title>
+</head>
+<body>
+    <label>Số thứ nhất</label>
+    <input type="text" id="firstValue" required/><br/><br/>
+    <div class="operation">
+        <button class="btn" value=+>+</button>
+        <button class="btn" value=->-</button>
+        <button class="btn" value=*>*</button>
+        <button class="btn" value="/">/</button>
+        <button class="btn">^</button>
+    </div><br/>
+    <label>Số thứ hai</label>
+    <input type="text" id="secondValue" required/><br/><br/>
+	<label>Kết quả</label>
+    <input type="text" id="result"/>
+    
+</body>
+	<script type="text/javascript">
+        const firstValue = document.getElementById("firstValue")
+        const secondValue = document.getElementById("secondValue")
+        const result = document.getElementById("result")
+        const btns= document.querySelectorAll(".btn")
+        console.log(btns[0].value);
+        for(let i=0;i<btns.length-1;i++){
+            btns[i].addEventListener("click",(e)=>{
+                e.preventDefault();
+                const first=firstValue.value
+                const second=secondValue.value
+                const resultVal=eval(`${first} ${btns[i].value} ${second}`);
+                result.value=resultVal
+            })
+        }
+        btns[3].addEventListener('click',(e)=>{
+            e.preventDefault();
+            const first=firstValue.value
+            const second=secondValue.value
+            if(second=='0'){
+                alert("Không có phép chia cho 0")
+            }else{
+                const resultVal=eval(`${first} ${btns[3].value} ${second}`);
+            result.value=resultVal
+            }
+        })
+
+        btns[4].addEventListener('click',(e)=>{
+            e.preventDefault();
+            const first=Number(firstValue.value)
+            const second=Number(secondValue.value)
+            const resultVal=Math.pow(first,second);
+            result.value=resultVal  
+        })
+    </script>
+</html>

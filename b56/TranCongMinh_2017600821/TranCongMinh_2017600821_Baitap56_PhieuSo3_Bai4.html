@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<table width="300" border="1" style="background-color: skyblue; text-align: center">
+  <tbody>
+    <tr>
+      <th scope="col" colspan="2">Tính tổng dãy số</th>
+    </tr>
+    <tr>
+      <td>Nhập n: </td>
+      <td><input type="text" id="input"/></td>
+    </tr>
+    <tr>
+      <td>Tổng dãy số: </td>
+      <td><input type="text" id="output"/></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+		<button id="Xoa">Xóa</button>
+		<button id="Tinh">Tính</button>
+		</td>
+    </tr>
+  </tbody>
+</table>
+
+	<script type="text/javascript">
+		let input=document.getElementById("input")
+		let ouput=document.getElementById("output")
+		const xoa=document.getElementById("Xoa")
+		const tinh=document.getElementById("Tinh")
+		
+		xoa.addEventListener("click",(e)=>{
+			e.preventDefault();
+			input.value=""
+			ouput.value=""
+		})
+
+		tinh.addEventListener("click",(e)=>{
+			e.preventDefault();
+			let n=parseInt(input.value)
+			let tong=parseInt(ouput.value)
+			tong=0
+			for(let i=1;i<=n;i++) 
+				{
+					if(i%2!=0) tong+=i
+				}
+			console.log(tong)
+			ouput.value=`${tong}`
+		})
+	</script>
+</body>
+	
+</html>

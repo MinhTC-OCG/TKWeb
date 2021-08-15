@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>p4b1</title>
+</head>
+
+<body>
+	<table width="600" border="1" style="background-color: skyblue">
+  <tbody>
+    <tr>
+      <th scope="col" colspan="2">TÍNH GIÁ TRỊ CỦA MẢNG</th>
+    </tr>
+	  
+    <tr>
+      <th scope="row">Nhập mảng:</th>
+      <td>&nbsp;<input type="text" id="input" placeholder="cách nhau bởi ;"></td>
+    </tr>
+    <tr>
+      <th scope="row">Tổng các phần tử của mảng:</th>
+      <td>&nbsp;<input type="text" id="sum"></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;Tổng các phần tử có chỉ số chắn:</th>
+      <td>&nbsp;<input type="text" id="sum_index_2"></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;Tổng các phần tử có chỉ số lẻ:</th>
+      <td>&nbsp;<input type="text" id="sum_index_1"></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;Tổng các phần tử có giá trị âm:</th>
+      <td>&nbsp;<input type="text" id="sum_minus"></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;Tổng các phần tử có giá trị dương:</th>
+      <td><input type="text" id="sum_positive"></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;Tổng các phần tử có giá trị chia hết cho 3:</th>
+      <td><input type="text" id="sum_mod_3"></td>
+    </tr>
+    <tr>
+      <td colspan="2" >
+		  <div style="position: relative; left: 250px">
+			<button id="btn_del">Xóa</button>
+			<button id="btn_cal">Tính</button>
+		  </div>
+		
+		</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+	<script type="application/javascript">
+		const del = document.getElementById("btn_del")
+		const cal = document.getElementById("btn_cal")
+		
+		let input = document.getElementById("input")
+		let sum = document.getElementById("sum")
+		let sum_i1 = document.getElementById("sum_index_1")
+		let sum_i2 = document.getElementById("sum_index_2")
+		let sum_minus = document.getElementById("sum_minus")
+		let sum_positive = document.getElementById("sum_positive")
+		let sum_mod_3 = document.getElementById("sum_mod_3")
+		
+		cal.addEventListener("click", (e)=>{
+			e.preventDefault()
+			let str=input.value.split(';').map((i)=>Number(i))
+			console.log(str)
+			
+			let sumVal = sum.value
+			sumVal = 0
+			let i1Val = sum_i1.value
+			i1Val = 0
+			let i2Val = sum_i2.value
+			i2Val = 0
+			let minus = sum_minus.value
+			minus = 0
+			let positive = sum_positive.value
+			positive = 0
+			let mod3 = sum_mod_3.value
+			mod3 = 0
+			for(let i=0;i<str.length;i++)
+			{
+				sumVal += str[i]
+				if(i%2==0) i2Val += str[i]
+				if(i%2!=0) i1Val += str[i]
+				if(str[i]<0) minus += str[i]
+				if(str[i]>0) positive += str[i]
+				if(str[i]%3==0) mod3 += str[i]
+				
+			}
+			sum.value=sumVal
+			sum_i1.value=i1Val
+			sum_i2.value=i2Val
+			sum_minus.value=minus
+			sum_positive.value=positive
+			sum_mod_3.value=mod3
+		})
+		
+		del.addEventListener("click", (e)=>{
+			e.preventDefault()
+			input.value=""
+			sum.value=""
+			sum_i1.value=""
+			sum_i2.value=""
+			sum_minus.value=""
+			sum_positive.value=""
+			sum_mod_3.value=""
+		})
+	</script>
+</html>
