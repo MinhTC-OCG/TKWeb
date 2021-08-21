@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>KẾT QUẢ HỌC TẬP</h1>
+    <table>
+      <tr>
+        <td>Điểm HK1:</td>
+        <td><input type="text" id="diemHK1" /></td>
+      </tr>
+      <tr>
+        <td>Điểm HK2:</td>
+        <td><input type="text" id="diemHK2" /></td>
+      </tr>
+      <tr>
+        <td>Điểm trung bình:</td>
+        <td><input type="text" id="diemTB" /></td>
+      </tr>
+      <tr>
+        <td>Kết quả:</td>
+        <td><input type="text" id="kq" /></td>
+      </tr>
+      <tr>
+        <td>Xếp loại học lực:</td>
+        <td><input type="text" id="xl" /></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="Xem kết quả" id="btnKQ" />
+        </td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    let diemHK1 = document.getElementById("diemHK1");
+    let diemHK2 = document.getElementById("diemHK2");
+    let diemTB = document.getElementById("diemTB");
+    let kq = document.getElementById("kq");
+    let xl = document.getElementById("xl");
+    const btnKQ = document.getElementById("btnKQ");
+
+    btnKQ.addEventListener("click", () => {
+      if (!diemHK1.value) {
+        alert("Điểm HK 1 không được để trống");
+      }
+      if (!diemHK2.value) {
+        alert("Điểm HK 2 không được để trống");
+      }
+
+      diem1Value = Number(diemHK1.value);
+      diem2Value = Number(diemHK2.value);
+      diemTB.value = (diem1Value + diem2Value * 2) / 3;
+
+      if (diemTB.value < 5) {
+        kq.value = "Ở lại lớp";
+      } else {
+        kq.value = "Được lên lớp";
+      }
+
+      if (diemTB.value >= 8 && diem1Value > 5 && diem2Value > 5) {
+        xl.value = "Giỏi";
+      } else if (diemTB.value >= 5 && diemTB.value < 6.5) {
+        xl.value = "Trung bình";
+      } else if (diemTB.value < 5) {
+        xl.value = "Yếu";
+      } else {
+        xl.value = "Khá";
+      }
+    });
+  </script>
+</html>

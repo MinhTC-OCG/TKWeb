@@ -32,7 +32,7 @@ kq.addEventListener('click', (e)=>{
     if(hinhThuc.value=='L'||hinhThuc.value=='l'){
         tongTien.value=soLuongValue*donGiaValue
     }
-    esle if(hinhThuc.value=='B'||hinhThuc.value=='b'){
+    else if(hinhThuc.value=='B'||hinhThuc.value=='b'){
         tongTien.value=100*donGiaValue+(soLuongValue-100)*0.5*donGiaValue
     }
     else{
