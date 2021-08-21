@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      table,
+      td {
+        border: 1px double black;
+      }
+      table {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HÓA ĐƠN ĐIỆN THOẠI</h1>
+    <table>
+      <tr>
+        <td>Mã thuê bao:</td>
+        <td><input type="text" id="matb" /></td>
+        <td>Số phút:</td>
+        <td><input type="text" id="soPhut" /></td>
+        <td>Hình thức:</td>
+        <td><input type="text" id="hinhThuc" /></td>
+      </tr>
+      <tr>
+        <td>Tiền nộp:</td>
+        <td><input type="text" id="tienNop" /></td>
+        <td>Đơn giá</td>
+        <td><input type="text" id="donGia" /></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><input type="submit" id="btn_kq" value="Kết quả" /></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    let matb = document.getElementById("matb");
+    let soPhut = document.getElementById("soPhut");
+    let hinhThuc = document.getElementById("hinhThuc");
+    let tienNop = document.getElementById("tienNop");
+    let donGia = document.getElementById("donGia");
+    const kq = document.getElementById("btn_kq");
+
+    kq.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (!matb.value) {
+        alert("Mã thuê bao không được để trống");
+      }
+      if (!soPhut.value) {
+        alert("Số phút không được để trống");
+      }
+      if (!hinhThuc.value) {
+        alert("Hình thức không được để trống");
+      }
+      if (!donGia.value) {
+        alert("Đơn giá không được để trống");
+      }
+
+      soPhutValue = Number(soPhut.value);
+      donGiaValue = Number(donGia.value);
+      if (hinhThuc.value == "TT" || hinhThuc.value == "tt") {
+        tienNop.value = soPhutValue * donGiaValue;
+      } else if (hinhThuc.value == "TS" || hinhThuc.value == "ts") {
+        tienNop.value =
+          100 * donGiaValue + (soPhutValue - 100) * 0.5 * donGiaValue;
+      } else {
+        alert("Không có hình thức này");
+      }
+
+      if (soPhutValue >= 100) {
+        alert("Bạn là khách VIP");
+      } else {
+        alert("Bạn là khách thông thường");
+      }
+    });
+  </script>
+</html>
