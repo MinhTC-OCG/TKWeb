@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+ul.menu{
+    width:20%;
+    background-color:red;
+}
+
+ul.menu li{
+    list-style: none;
+    border: 1px dotted gray;
+    height:40px
+}
+
+ul.menu li a{
+    text-decoration:none
+}
+
+ul.menu li ul{
+    display: none;
+    position: relative;
+    left: 255px;
+    bottom: 19px;
+
+}
+
+ul.menu li:hover ul{
+    display: block;
+    background-color:#ffcccc;
+}
+
+
