@@ -26,6 +26,7 @@ ul.menu li{
     height:30px;
     width:16.67%;
     text-align: center;
+    background-color: green;
 }
 
 ul.menu li:hover{
@@ -34,12 +35,13 @@ ul.menu li:hover{
 
 ul.menu li a{
     text-decoration: none;
+    color: white;
 }
 
 ul.menu li ul{
     display: none;
     position: relative;
-    top: 10px;
+    top: 40%;
     width: 100%;        
 }
 
